@@ -19,6 +19,7 @@ voyager = "1.1.0-beta03"
 kotlinx-datetime = "0.6.1"
 sqldelight = "2.0.2"
 ktor = "3.0.0"
+jetbrainsKotlinJvm = "1.9.24"
 
 [libraries]
 # [TEST]
@@ -76,3 +77,4 @@ composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "k
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
