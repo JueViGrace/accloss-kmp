@@ -11,9 +11,6 @@ import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
-import org.clo.accloss.core.presentation.theme.AppTypography
-import org.clo.accloss.core.presentation.theme.darkScheme
-import org.clo.accloss.core.presentation.theme.lightScheme
 
 @Composable
 actual fun AppTheme(

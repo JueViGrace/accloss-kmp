@@ -1,6 +1,6 @@
 [versions]
 agp = "8.7.1"
-android-compileSdk = "34"
+android-compileSdk = "35"
 android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activityCompose = "1.9.3"
@@ -20,6 +20,7 @@ kotlinx-datetime = "0.6.1"
 sqldelight = "2.0.2"
 ktor = "3.0.0"
 jetbrainsKotlinJvm = "1.9.24"
+# jetbrainsKotlinJvm = "1.9.24"
 
 [libraries]
 # [TEST]
@@ -78,3 +79,4 @@ kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref =
 sqldelight = { id = "app.cash.sqldelight", version.ref = "sqldelight" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
+# jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvm" }
