@@ -1,0 +1,124 @@
+CREATE TABLE IF NOT EXISTS cliente (
+     cantdocs REAL NOT NULL DEFAULT 0.0,
+     codigo TEXT NOT NULL DEFAULT '',
+     contribespecial REAL NOT NULL DEFAULT 0.0,
+     diasultvta REAL NOT NULL DEFAULT 0.0,
+     direccion TEXT NOT NULL DEFAULT '',
+     email TEXT NOT NULL DEFAULT '',
+     fchcrea TEXT NOT NULL DEFAULT '',
+     fchultvta TEXT NOT NULL DEFAULT '',
+     fechamodifi TEXT NOT NULL DEFAULT '',
+     kneActiva TEXT NOT NULL DEFAULT '',
+     kneMtomin REAL NOT NULL DEFAULT 0.0,
+     limcred REAL NOT NULL DEFAULT 0.0,
+     mtoultvta REAL NOT NULL DEFAULT 0.0,
+     noemifac INTEGER NOT NULL DEFAULT 0,
+     noeminota INTEGER NOT NULL DEFAULT 0,
+     nombre TEXT NOT NULL DEFAULT '',
+     perscont TEXT NOT NULL DEFAULT '',
+     prcdpagdia REAL NOT NULL DEFAULT 0.0,
+     precio REAL NOT NULL DEFAULT 0.0,
+     promdiasp REAL NOT NULL DEFAULT 0.0,
+     promdiasvta REAL NOT NULL DEFAULT 0.0,
+     prommtodoc REAL NOT NULL DEFAULT 0.0,
+     riesgocrd REAL NOT NULL DEFAULT 0.0,
+     sector TEXT NOT NULL DEFAULT '',
+     status REAL NOT NULL DEFAULT 0.0,
+     subcodigo TEXT NOT NULL DEFAULT '',
+     telefonos TEXT NOT NULL DEFAULT '',
+     totmtodocs REAL NOT NULL DEFAULT 0.0,
+     vendedor TEXT NOT NULL DEFAULT '',
+     user_id TEXT NOT NULL DEFAULT '',
+     PRIMARY KEY(codigo, user_id),
+     FOREIGN KEY(user_id) REFERENCES session(id)
+);
+
+CREATE INDEX customer_code ON cliente(codigo);
+CREATE INDEX customer_user_id ON cliente(user_id);
+CREATE INDEX customer_salesman ON cliente(vendedor);
+
+getClientes:
+SELECT *
+FROM cliente
+WHERE user_id == :id
+ORDER BY cliente.nombre;
+
+getCliente:
+SELECT *
+FROM cliente
+WHERE
+user_id == :id
+AND
+codigo == :codigo;
+
+getCustomersData:
+SELECT
+* ,
+(SELECT COUNT(pedido.ktiNdoc) FROM pedido WHERE pedido.ktiCodcli = cliente.codigo AND pedido.user_id = cliente.user_id) AS orders,
+(SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcliente = cliente.codigo AND factura.user_id = cliente.user_id) AS debt,
+(SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcliente = cliente.codigo AND factura.vence < DATE('now') AND factura.user_id = cliente.user_id) AS expired
+FROM cliente
+WHERE cliente.user_id = :id
+ORDER BY cliente.nombre;
+
+getCustomersDataBySalesman:
+SELECT * ,
+(SELECT COUNT(pedido.ktiNdoc) FROM pedido WHERE pedido.ktiCodcli = cliente.codigo AND pedido.user_id = cliente.user_id) AS orders,
+(SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcliente = cliente.codigo AND factura.user_id = cliente.user_id) AS debt,
+(SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcliente = cliente.codigo AND factura.vence < DATE('now') AND factura.user_id = cliente.user_id) AS expired
+FROM cliente
+WHERE
+    cliente.user_id = :id AND
+    cliente.vendedor = :vendedor
+ORDER BY cliente.nombre;
+
+getCustomerData:
+SELECT
+* ,
+(SELECT COUNT(pedido.ktiNdoc) FROM pedido WHERE pedido.ktiCodcli = cliente.codigo AND pedido.user_id = cliente.user_id) AS orders,
+(SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcliente = cliente.codigo AND factura.user_id = cliente.user_id) AS debt,
+(SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcliente = cliente.codigo AND factura.vence < DATE('now') AND factura.user_id = cliente.user_id) AS expired
+FROM cliente
+WHERE
+cliente.user_id = :id AND
+cliente.codigo = :codigo;
+
+addCliente:
+INSERT OR REPLACE
+INTO cliente (
+     cantdocs,
+     codigo,
+     contribespecial,
+     diasultvta,
+     direccion,
+     email,
+     fchcrea,
+     fchultvta,
+     fechamodifi,
+     kneActiva,
+     kneMtomin,
+     limcred,
+     mtoultvta,
+     noemifac,
+     noeminota,
+     nombre,
+     perscont,
+     prcdpagdia,
+     precio,
+     promdiasp,
+     promdiasvta,
+     prommtodoc,
+     riesgocrd,
+     sector,
+     status,
+     subcodigo,
+     telefonos,
+     totmtodocs,
+     vendedor,
+     user_id
+)
+VALUES ?;
+
+deleteClientes:
+DELETE FROM cliente
+WHERE user_id == :id;

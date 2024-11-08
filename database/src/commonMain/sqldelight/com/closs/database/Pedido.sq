@@ -1,0 +1,83 @@
+CREATE TABLE IF NOT EXISTS pedido (
+    fechamodifi TEXT NOT NULL DEFAULT '',
+    kePedstatus TEXT NOT NULL DEFAULT '',
+    ktiCodcli TEXT NOT NULL DEFAULT '',
+    ktiCodven TEXT NOT NULL DEFAULT '',
+    ktiCondicion TEXT NOT NULL DEFAULT '',
+    ktiDocsol TEXT NOT NULL DEFAULT '',
+    ktiFchdoc TEXT NOT NULL DEFAULT '',
+    ktiNdoc TEXT NOT NULL DEFAULT '',
+    ktiNegesp TEXT NOT NULL DEFAULT '',
+    ktiNombrecli TEXT NOT NULL DEFAULT '',
+    ktiNroped TEXT NOT NULL DEFAULT '',
+    ktiStatus TEXT NOT NULL DEFAULT '',
+    ktiTdoc TEXT NOT NULL DEFAULT '',
+    ktiTipprec REAL NOT NULL DEFAULT 0.0,
+    ktiTotneto REAL NOT NULL DEFAULT 0.0,
+    user_id TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY(ktiNdoc, user_id)
+);
+
+CREATE INDEX order_document ON pedido(ktiNdoc);
+CREATE INDEX order_company ON pedido(user_id);
+CREATE INDEX order_customer ON pedido(ktiCodcli);
+CREATE INDEX order_salesman ON pedido(ktiCodven);
+
+getPedidos:
+SELECT *
+FROM pedido
+WHERE
+    pedido.user_id = :id
+ORDER BY pedido.ktiCodven, pedido.ktiNdoc;
+
+getOrdersBySalesman:
+SELECT *
+FROM pedido
+WHERE
+    pedido.user_id = :id AND
+    pedido.ktiCodven = :vendedor
+ORDER BY pedido.ktiCodven, pedido.ktiNdoc;
+
+getPedido:
+SELECT *
+FROM pedido
+WHERE
+    pedido.user_id = :id AND
+    pedido.ktiNdoc = :pedido;
+
+getOrderWithLines:
+SELECT *
+FROM pedido
+LEFT JOIN lineas_pedido
+ON lineas_pedido.ktiNdoc = pedido.ktiNdoc AND
+   lineas_pedido.user_id = pedido.user_id
+WHERE
+    pedido.user_id = :id AND
+    pedido.ktiNdoc = :pedido
+GROUP BY pedido.ktiNdoc, lineas_pedido.kmvCodart;
+
+addPedido:
+INSERT OR REPLACE
+INTO pedido (
+    fechamodifi,
+    kePedstatus,
+    ktiCodcli,
+    ktiCodven,
+    ktiCondicion,
+    ktiDocsol,
+    ktiFchdoc,
+    ktiNdoc,
+    ktiNegesp,
+    ktiNombrecli,
+    ktiNroped,
+    ktiStatus,
+    ktiTdoc,
+    ktiTipprec,
+    ktiTotneto,
+    user_id
+)
+VALUES ?;
+
+deletePedidos:
+DELETE FROM pedido
+WHERE user_id == :id;

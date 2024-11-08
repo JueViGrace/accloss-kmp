@@ -4,7 +4,7 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    alias(libs.plugins.sqldelight)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 kotlin {
@@ -19,36 +19,28 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-            // Sqldelight
-            implementation(libs.sqldelight.android.driver)
         }
 
         commonMain.dependencies {
-//            implementation(projects.types)
-
             // Coroutines
             implementation(libs.kotlinx.coroutines.core)
 
-            // Koin
-            implementation(libs.koin.core)
+            // Kotlin Datetime
+            implementation(libs.kotlinx.datetime)
 
-            // Sqldelight
-            implementation(libs.sqldelight.coroutines.extensions)
-            implementation(libs.sqldelight.async.extensions)
+            // Serialization
+            implementation(libs.kotlinx.serialization.json)
         }
 
         jvmMain.dependencies {
             // Coroutines
             implementation(libs.kotlinx.coroutines.swing)
-
-            // Sqldelight
-            implementation(libs.sqldelight.sqlite.driver)
         }
     }
 }
 
 android {
-    namespace = "com.closs.database"
+    namespace = "com.closs.types"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     defaultConfig {
@@ -58,15 +50,5 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
-    }
-}
-
-sqldelight {
-    databases {
-        create("CloDb") {
-            packageName.set("com.closs.database")
-            dialect(libs.sqldelight.dialect)
-            generateAsync.set(true)
-        }
     }
 }

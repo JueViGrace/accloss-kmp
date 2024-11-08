@@ -1,0 +1,52 @@
+CREATE TABLE IF NOT EXISTS vendedor (
+    email TEXT NOT NULL DEFAULT '',
+    nombre TEXT NOT NULL DEFAULT '',
+    sector TEXT NOT NULL DEFAULT '',
+    subsector TEXT NOT NULL DEFAULT '',
+    supervpor TEXT NOT NULL DEFAULT '',
+    telefonoMovil TEXT NOT NULL DEFAULT '',
+    telefonos TEXT NOT NULL DEFAULT '',
+    ultSinc TEXT NOT NULL DEFAULT '',
+    username TEXT NOT NULL DEFAULT '',
+    vendedor TEXT NOT NULL DEFAULT '',
+    version TEXT NOT NULL DEFAULT '',
+    user_id TEXT NOT NULL DEFAULT '',
+    PRIMARY KEY(vendedor, user_id),
+    FOREIGN KEY(user_id) REFERENCES session(id)
+);
+
+getVendedores:
+SELECT *
+FROM vendedor
+WHERE user_id = :id
+ORDER BY nombre ASC;
+
+getVendedor:
+SELECT *
+FROM vendedor
+WHERE
+user_id = :id
+AND
+vendedor = :vendedor;
+
+addVendedor:
+INSERT OR REPLACE
+INTO vendedor (
+email,
+nombre,
+sector,
+subsector,
+supervpor,
+telefonoMovil,
+telefonos,
+ultSinc,
+username,
+vendedor,
+version,
+user_id
+)
+VALUES ?;
+
+deleteVendedor:
+DELETE FROM vendedor
+WHERE user_id = :id;

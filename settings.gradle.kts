@@ -31,4 +31,5 @@ dependencyResolutionManagement {
 include(
     ":composeApp",
     ":database",
+    ":types",
 )

@@ -1,0 +1,74 @@
+CREATE TABLE configuration (
+     cnfgActiva REAL NOT NULL DEFAULT 0.0,
+     cnfgClase TEXT NOT NULL DEFAULT '',
+     cnfgEtiq TEXT NOT NULL DEFAULT '',
+     cnfgIdconfig TEXT NOT NULL DEFAULT '',
+     cnfgLentxt REAL NOT NULL DEFAULT 0.0,
+     cnfgTipo TEXT NOT NULL DEFAULT '',
+     cnfgTtip TEXT NOT NULL DEFAULT '',
+     cnfgValfch TEXT NOT NULL DEFAULT '',
+     cnfgValnum REAL NOT NULL DEFAULT 0.0,
+     cnfgValsino REAL NOT NULL DEFAULT 0.0,
+     cnfgValtxt TEXT NOT NULL DEFAULT '',
+     fechamodifi TEXT NOT NULL DEFAULT '',
+     username TEXT NOT NULL DEFAULT '',
+     user_id TEXT NOT NULL DEFAULT '',
+     PRIMARY KEY(username, user_id),
+     FOREIGN KEY(user_id) REFERENCES session(id)
+);
+
+getConfigNum:
+SELECT cnfgValnum
+FROM configuration
+WHERE
+cnfgIdconfig = :key AND
+cnfgActiva = '1' AND
+user_id = :id;
+
+getConfigBool:
+SELECT cnfgValsino
+FROM configuration
+WHERE
+cnfgIdconfig = :key AND
+cnfgActiva = '1' AND
+user_id = :id;
+
+getConfigText:
+SELECT cnfgValtxt
+FROM configuration
+WHERE
+cnfgIdconfig = :key AND
+cnfgActiva = '1' AND
+user_id = :id;
+
+getConfigDate:
+SELECT cnfgValfch
+FROM configuration
+WHERE
+cnfgIdconfig = :key AND
+cnfgActiva = '1' AND
+user_id = :id;
+
+addConfiguration:
+INSERT OR REPLACE
+INTO configuration (
+cnfgActiva,
+cnfgClase,
+cnfgEtiq,
+cnfgIdconfig,
+cnfgLentxt,
+cnfgTipo,
+cnfgTtip,
+cnfgValfch,
+cnfgValnum,
+cnfgValsino,
+cnfgValtxt,
+fechamodifi,
+username,
+user_id
+)
+VALUES ?;
+
+deleteConfig:
+DELETE FROM configuration
+WHERE configuration.user_id = :id;

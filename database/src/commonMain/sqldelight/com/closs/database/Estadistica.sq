@@ -1,0 +1,153 @@
+CREATE TABLE IF NOT EXISTS estadistica (
+clivisit REAL NOT NULL DEFAULT 0.0,
+cntclientes REAL NOT NULL DEFAULT 0.0,
+cntfacturas REAL NOT NULL DEFAULT 0.0,
+cntpedidos REAL NOT NULL DEFAULT 0.0,
+cntrecl REAL NOT NULL DEFAULT 0.0,
+codcoord TEXT NOT NULL DEFAULT '',
+defdolTotneto REAL NOT NULL DEFAULT 0.0,
+devdolTotneto REAL NOT NULL DEFAULT 0.0,
+fechaEstad TEXT NOT NULL DEFAULT '',
+lomMontovtas REAL NOT NULL DEFAULT 0.0,
+lomPrcvisit REAL NOT NULL DEFAULT 0.0,
+lomPrcvtas REAL NOT NULL DEFAULT 0.0,
+metavend REAL NOT NULL DEFAULT 0.0,
+mtofacturas REAL NOT NULL DEFAULT 0.0,
+mtopedidos REAL NOT NULL DEFAULT 0.0,
+mtorecl REAL NOT NULL DEFAULT 0.0,
+nombrevend TEXT NOT NULL DEFAULT '',
+nomcoord TEXT NOT NULL DEFAULT '',
+ppgdolTotneto REAL NOT NULL DEFAULT 0.0,
+prcmeta REAL NOT NULL DEFAULT 0.0,
+prcvisitas REAL NOT NULL DEFAULT 0.0,
+rlomMontovtas REAL NOT NULL DEFAULT 0.0,
+rlomPrcvisit REAL NOT NULL DEFAULT 0.0,
+rlomPrcvtas REAL NOT NULL DEFAULT 0.0,
+totdolcob REAL NOT NULL DEFAULT 0.0,
+vendedor TEXT NOT NULL DEFAULT '',
+user_id TEXT NOT NULL DEFAULT '',
+PRIMARY KEY(vendedor, user_id),
+FOREIGN KEY(user_id) REFERENCES session(id)
+);
+
+getEstadisticas:
+SELECT *
+FROM estadistica
+WHERE user_id == :id
+ORDER BY codcoord, nombrevend;
+
+getEstadistica:
+SELECT *
+FROM estadistica
+WHERE
+vendedor == :vendedor
+AND
+user_id == :id;
+
+getManagementsStatistics:
+SELECT
+    gerencia.kngCodcoord AS codigo,
+    (SELECT estadistica.nomcoord FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS nombre
+FROM gerencia
+WHERE
+	gerencia.kngCodgcia = :codigo AND gerencia.user_id = :id
+GROUP BY
+	gerencia.kngCodcoord
+ORDER BY
+	gerencia.kngCodcoord ASC;
+
+getProfileStatistics:
+SELECT
+    (
+        SELECT SUM(factura.dtotalfinal - factura.dtotpagos)
+        FROM factura
+        WHERE factura.vence < DATE('now') AND factura.user_id = :id
+    ) AS expired,
+    (
+        SELECT SUM(dtotalfinal - dtotpagos)
+        FROM factura
+        WHERE factura.user_id = :id
+    ) AS debts,
+    (
+        SELECT SUM(estadistica.totdolcob)
+        FROM estadistica
+        WHERE estadistica.user_id = :id
+    ) AS paid;
+
+getManagementStatistics:
+SELECT
+    gerencia.kngCodcoord AS codigo,
+    (SELECT estadistica.nomcoord FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS nombre,
+    (SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcoord = gerencia.kngCodcoord AND factura.user_id = gerencia.user_id) AS deuda,
+    (SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.codcoord = gerencia.kngCodcoord AND factura.vence < DATE('now') AND factura.user_id = gerencia.user_id) AS vencido,
+    (SELECT (SUM(estadistica.mtofacturas) - SUM(estadistica.ppgdolTotneto) - SUM(estadistica.devdolTotneto) - SUM(estadistica.defdolTotneto)) / (SUM(estadistica.metavend)) * 100 FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS prcmeta,
+    (SELECT (SUM(estadistica.mtofacturas) - SUM(estadistica.ppgdolTotneto) - SUM(estadistica.devdolTotneto) - SUM(estadistica.defdolTotneto)) FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS mtofactneto,
+    (SELECT SUM(estadistica.cntpedidos) FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS cantped,
+    (SELECT SUM(metavend) FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS meta,
+    (SELECT SUM(totdolcob) FROM estadistica WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS mtocob,
+    (SELECT SUM(cliente.promdiasvta) / COUNT(cliente.codigo) FROM cliente INNER JOIN estadistica ON cliente.vendedor = estadistica.vendedor WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS promdiasvta,
+    (SELECT SUM(cantdocs) FROM cliente INNER JOIN estadistica ON cliente.vendedor = estadistica.vendedor WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS cantdocs,
+    (SELECT SUM(totmtodocs) FROM cliente INNER JOIN estadistica ON cliente.vendedor = estadistica.vendedor WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS totmtodocs,
+    (SELECT SUM(totmtodocs) / SUM(cantdocs) FROM cliente INNER JOIN estadistica ON cliente.vendedor = estadistica.vendedor WHERE estadistica.codcoord = gerencia.kngCodcoord AND estadistica.user_id = gerencia.user_id) AS prommtopordoc
+FROM gerencia
+WHERE
+	gerencia.kngCodcoord = :codigo AND gerencia.user_id = :id;
+
+getSalesmanPersonalStatistic:
+SELECT
+    estadistica.vendedor AS codigo,
+    estadistica.nombrevend AS nombre,
+    (SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.vendedor = estadistica.vendedor AND factura.user_id = estadistica.user_id) AS deuda,
+    (SELECT SUM(factura.dtotalfinal - factura.dtotpagos) FROM factura WHERE factura.vendedor = estadistica.vendedor AND factura.vence < DATE('now') AND factura.user_id = estadistica.user_id) AS vencido,
+    (SUM(estadistica.mtofacturas) - SUM(estadistica.ppgdolTotneto) - SUM(estadistica.devdolTotneto) - SUM(estadistica.defdolTotneto)) / (SUM(estadistica.metavend)) * 100 AS prcmeta,
+    (SUM(estadistica.mtofacturas) - SUM(estadistica.ppgdolTotneto) - SUM(estadistica.devdolTotneto) - SUM(estadistica.defdolTotneto)) AS mtofactneto,
+    SUM(estadistica.cntpedidos) AS cantped,
+    SUM(estadistica.metavend) AS meta,
+    SUM(estadistica.totdolcob) AS mtocob,
+    (SELECT SUM(cliente.promdiasvta) / COUNT(cliente.codigo) FROM cliente WHERE cliente.vendedor = estadistica.vendedor AND cliente.user_id = estadistica.user_id) AS promdiasvta,
+    (SELECT SUM(cantdocs) FROM cliente WHERE cliente.vendedor = estadistica.vendedor AND cliente.user_id = estadistica.user_id) AS cantdocs,
+    (SELECT SUM(totmtodocs) FROM cliente WHERE cliente.vendedor = estadistica.vendedor AND cliente.user_id = estadistica.user_id) AS totmtodocs,
+    (SELECT SUM(totmtodocs) / SUM(cantdocs) FROM cliente WHERE cliente.vendedor = estadistica.vendedor AND cliente.user_id = estadistica.user_id) AS prommtopordoc
+FROM estadistica
+WHERE
+	estadistica.vendedor = :vendedor AND estadistica.user_id = :id
+GROUP BY
+	estadistica.vendedor
+ORDER BY estadistica.prcmeta;
+
+addEstadistica:
+INSERT OR REPLACE
+INTO estadistica (
+clivisit,
+cntclientes,
+cntfacturas,
+cntpedidos,
+cntrecl,
+codcoord,
+defdolTotneto,
+devdolTotneto,
+fechaEstad,
+lomMontovtas,
+lomPrcvisit,
+lomPrcvtas,
+metavend,
+mtofacturas,
+mtopedidos,
+mtorecl,
+nombrevend,
+nomcoord,
+ppgdolTotneto,
+prcmeta,
+prcvisitas,
+rlomMontovtas,
+rlomPrcvisit,
+rlomPrcvtas,
+totdolcob,
+vendedor,
+user_id
+)
+VALUES ?;
+
+deleteEstadisticas:
+DELETE FROM estadistica
+WHERE user_id == :id;
