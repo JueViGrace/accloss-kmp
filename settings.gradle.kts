@@ -33,4 +33,5 @@ include(
     ":database",
     ":types",
     ":api",
+    ":di"
 )

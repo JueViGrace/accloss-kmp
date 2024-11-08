@@ -7,6 +7,7 @@ plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinx.serialization)
 }
 
 kotlin {
@@ -92,7 +93,7 @@ dependencies {
 
 compose.desktop {
     application {
-        mainClass = "com.closs.app.MainKt"
+        mainClass = "com.closs.app.ApplicationKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
