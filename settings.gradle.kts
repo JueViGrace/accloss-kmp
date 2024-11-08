@@ -32,4 +32,5 @@ include(
     ":composeApp",
     ":database",
     ":types",
+    ":api",
 )
