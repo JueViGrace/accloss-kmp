@@ -1,4 +1,4 @@
-package com.clo.accloss.core.presentation.components.display
+package com.closs.app.presentation.components.display
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background

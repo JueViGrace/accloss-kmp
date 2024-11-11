@@ -1,4 +1,4 @@
-package com.clo.accloss.core.presentation.components.buttons
+package com.closs.app.presentation.components.buttons
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource

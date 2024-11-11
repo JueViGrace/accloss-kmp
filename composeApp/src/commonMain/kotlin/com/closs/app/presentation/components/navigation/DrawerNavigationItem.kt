@@ -1,11 +1,11 @@
-package com.clo.accloss.core.presentation.components.navigation
+package com.closs.app.presentation.components.navigation
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.clo.accloss.core.presentation.components.display.CustomText
+import com.closs.app.presentation.components.display.CustomText
 
 @Composable
 fun DrawerNavigationItem(

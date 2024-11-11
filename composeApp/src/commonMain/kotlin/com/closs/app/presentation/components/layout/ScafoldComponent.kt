@@ -1,4 +1,4 @@
-package com.clo.accloss.core.presentation.components.layout
+package com.closs.app.presentation.components.layout
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,8 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.clo.accloss.core.presentation.state.DisplayResult
-import com.clo.accloss.core.presentation.state.UiState
+import com.closs.app.common.DisplayResult
+import com.closs.core.types.core.RequestState
 
 @Composable
 fun<T> LayoutComponent(
@@ -28,7 +28,7 @@ fun<T> LayoutComponent(
     containerColor: Color = MaterialTheme.colorScheme.background,
     contentColor: Color = contentColorFor(containerColor),
     contentWindowInsets: WindowInsets = ScaffoldDefaults.contentWindowInsets,
-    state: UiState<T>,
+    state: RequestState<T>,
     content: @Composable (T) -> Unit
 ) {
     Scaffold(
@@ -53,7 +53,8 @@ fun<T> LayoutComponent(
                     LoadingScreen()
                 },
                 onError = { message ->
-                    ErrorScreen(message)
+                    // todo: handle errors
+//                    ErrorScreen(message)
                 },
                 onSuccess = { data ->
                     content(data)
@@ -87,6 +88,6 @@ fun LayoutComponent(
         contentColor = contentColor,
         contentWindowInsets = contentWindowInsets
     ) { innerPadding ->
-            content(innerPadding)
+        content(innerPadding)
     }
 }

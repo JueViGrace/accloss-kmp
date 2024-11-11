@@ -1,8 +1,8 @@
-package com.clo.accloss.core.presentation.components.layout
+package com.closs.app.presentation.components.layout
 
-import ac_closs.composeapp.generated.resources.Res
-import ac_closs.composeapp.generated.resources.ic_cloud
-import ac_closs.composeapp.generated.resources.synchronize
+import accloss_kmp.composeapp.generated.resources.Res
+import accloss_kmp.composeapp.generated.resources.ic_cloud
+import accloss_kmp.composeapp.generated.resources.synchronize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,9 +10,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import com.clo.accloss.core.presentation.components.display.CustomText
 import com.clo.accloss.core.presentation.components.display.RowComponent
-import com.clo.accloss.core.presentation.components.icons.IconComponent
+import com.closs.app.presentation.components.display.CustomText
+import com.closs.app.presentation.components.icons.IconComponent
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 

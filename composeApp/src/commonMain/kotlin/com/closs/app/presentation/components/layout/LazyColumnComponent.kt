@@ -1,4 +1,4 @@
-package com.clo.accloss.core.presentation.components.layout
+package com.closs.app.presentation.components.layout
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement

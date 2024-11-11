@@ -1,8 +1,8 @@
-package com.clo.accloss.core.presentation.components.buttons
+package com.closs.app.presentation.components.buttons
 
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
-import com.clo.accloss.core.presentation.components.display.LetterComponent
+import com.closs.app.presentation.components.display.LetterComponent
 
 @Composable
 fun AccountButton(

@@ -1,4 +1,4 @@
-package com.clo.accloss.core.presentation.components.input
+package com.closs.app.presentation.components.input
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
@@ -10,8 +10,8 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.VisualTransformation
-import com.clo.accloss.core.presentation.components.display.CustomText
-import com.clo.accloss.core.presentation.components.icons.IconComponent
+import com.closs.app.presentation.components.display.CustomText
+import com.closs.app.presentation.components.icons.IconComponent
 import org.jetbrains.compose.resources.DrawableResource
 import org.jetbrains.compose.resources.painterResource
 

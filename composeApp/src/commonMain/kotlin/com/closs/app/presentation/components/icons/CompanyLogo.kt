@@ -1,4 +1,4 @@
-package com.clo.accloss.core.presentation.components.icons
+package com.closs.app.presentation.components.icons
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.padding
@@ -10,9 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import com.clo.accloss.core.common.selectAccountImage
-import com.clo.accloss.core.presentation.components.display.ImageComponent
-import com.clo.types.common.Constants.WOKIN
+import com.closs.app.common.selectAccountImage
+import com.closs.app.presentation.components.display.ImageComponent
+import com.closs.core.types.common.Constants.WOKIN
 
 @Composable
 fun CompanyLogo(

@@ -1,9 +1,9 @@
-package com.clo.accloss.core.presentation.components.input
+package com.closs.app.presentation.components.input
 
-import ac_closs.composeapp.generated.resources.Res
-import ac_closs.composeapp.generated.resources.ic_search
-import ac_closs.composeapp.generated.resources.ic_x
-import ac_closs.composeapp.generated.resources.search
+import accloss_kmp.composeapp.generated.resources.Res
+import accloss_kmp.composeapp.generated.resources.ic_search
+import accloss_kmp.composeapp.generated.resources.ic_x
+import accloss_kmp.composeapp.generated.resources.search
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -16,8 +16,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.input.ImeAction
-import com.clo.accloss.core.presentation.components.display.CustomText
-import com.clo.accloss.core.presentation.components.icons.IconComponent
+import com.closs.app.presentation.components.display.CustomText
+import com.closs.app.presentation.components.icons.IconComponent
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 

@@ -1,4 +1,4 @@
-package com.closs.app.theme
+package com.closs.app.presentation.theme
 
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
