@@ -8,10 +8,10 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
-import com.closs.types.core.RequestState
+import com.closs.core.types.core.RequestState
 
 @Composable
-internal fun<T> RequestState<T>.DisplayResult(
+internal fun<T> com.closs.core.types.core.RequestState<T>.DisplayResult(
     onIdle: (@Composable () -> Unit)? = null,
     onLoading: @Composable () -> Unit,
     onSuccess: @Composable (T) -> Unit,
@@ -27,19 +27,19 @@ internal fun<T> RequestState<T>.DisplayResult(
         label = "Animated State"
     ) { state ->
         when (state) {
-            is RequestState.Idle -> {
+            is com.closs.core.types.core.RequestState.Idle -> {
                 onIdle?.invoke()
             }
 
-            is RequestState.Loading -> {
+            is com.closs.core.types.core.RequestState.Loading -> {
                 onLoading()
             }
 
-            is RequestState.Success -> {
+            is com.closs.core.types.core.RequestState.Success -> {
                 onSuccess(state.getSuccessData())
             }
 
-            is RequestState.Error -> {
+            is com.closs.core.types.core.RequestState.Error -> {
                 onError(state.getErrorMessage())
             }
         }

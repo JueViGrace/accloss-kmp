@@ -30,8 +30,12 @@ dependencyResolutionManagement {
 
 include(
     ":composeApp",
-    ":database",
-    ":types",
-    ":api",
-    ":di"
+    ":core:database",
+    ":core:types",
+    ":core:api",
+    ":core:di",
+    ":feature:auth",
+    ":feature:home",
+    ":feature:contact",
+    ":feature:contact-detail",
 )
