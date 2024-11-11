@@ -31,6 +31,8 @@ kotlin {
             implementation(libs.androidx.app.update.ktx)
         }
         commonMain.dependencies {
+            implementation(projects.types)
+
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material3)
@@ -69,7 +71,7 @@ android {
         minSdk = libs.versions.android.minSdk.get().toInt()
         targetSdk = libs.versions.android.targetSdk.get().toInt()
         versionCode = 1
-        versionName = "1.0"
+        versionName = libs.versions.app.version.get()
     }
     packaging {
         resources {
@@ -85,6 +87,9 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -98,7 +103,7 @@ compose.desktop {
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
             packageName = "com.closs.app"
-            packageVersion = "1.0.0"
+            packageVersion = libs.versions.app.version.get()
         }
     }
 }

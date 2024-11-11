@@ -6,6 +6,9 @@ import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
+import com.closs.app.presentation.theme.AppTypography
+import com.closs.app.presentation.theme.darkScheme
+import com.closs.app.presentation.theme.lightScheme
 
 @Composable
 actual fun AppTheme(

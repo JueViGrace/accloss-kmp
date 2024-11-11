@@ -19,7 +19,7 @@ object Constants {
 
     const val UNEXPECTED_ERROR = "Unexpected error"
 
-    private val STOP_TIME_MILLIS = Duration.parse("2s").inWholeSeconds
+    private val STOP_TIME_MILLIS = Duration.parse("5s").inWholeSeconds
 
     val SHARING_STARTED = SharingStarted.WhileSubscribed(STOP_TIME_MILLIS)
 }
