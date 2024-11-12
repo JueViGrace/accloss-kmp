@@ -8,18 +8,21 @@ import androidx.compose.ui.Modifier
 import com.closs.app.presentation.navigation.Navigation
 import com.closs.app.presentation.theme.AppTheme
 import org.jetbrains.compose.ui.tooling.preview.Preview
+import org.koin.compose.KoinContext
 
 @Composable
 @Preview
 fun App() {
-    AppTheme(
-        darkTheme = isSystemInDarkTheme(),
-        dynamicColor = true
-    ) {
-        Surface(
-            modifier = Modifier.fillMaxSize()
+    KoinContext {
+        AppTheme(
+            darkTheme = isSystemInDarkTheme(),
+            dynamicColor = true
         ) {
-            Navigation()
+            Surface(
+                modifier = Modifier.fillMaxSize()
+            ) {
+                Navigation()
+            }
         }
     }
 }

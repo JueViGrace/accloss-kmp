@@ -1,6 +1,6 @@
 package com.closs.core.api
 
-import com.closs.types.common.Constants.BASE_URL
+import com.closs.core.shared.common.Constants.BASE_URL
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.DefaultRequest

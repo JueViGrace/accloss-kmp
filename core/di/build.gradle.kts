@@ -24,7 +24,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.types)
+            implementation(projects.core.shared)
             implementation(projects.core.database)
             implementation(projects.core.api)
 

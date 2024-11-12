@@ -29,9 +29,15 @@ kotlin {
             implementation(libs.androidx.core.ktx)
             implementation(libs.androidx.app.update)
             implementation(libs.androidx.app.update.ktx)
+
+            implementation(libs.koin.android)
+            implementation(libs.koin.androidx.compose)
         }
         commonMain.dependencies {
-            implementation(projects.core.types)
+            implementation(projects.core.shared)
+            implementation(projects.core.di)
+            implementation(projects.feature.auth)
+            implementation(projects.feature.home)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -96,14 +102,20 @@ dependencies {
     debugImplementation(compose.uiTooling)
 }
 
-compose.desktop {
-    application {
-        mainClass = "com.closs.app.ApplicationKt"
+compose {
+    desktop {
+        application {
+            mainClass = "com.closs.app.ApplicationKt"
 
-        nativeDistributions {
-            targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.closs.app"
-            packageVersion = libs.versions.app.version.get()
+            nativeDistributions {
+                targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
+                packageName = "com.closs.app"
+                packageVersion = libs.versions.app.version.get()
+            }
         }
+    }
+
+    resources {
+        generateResClass = never
     }
 }

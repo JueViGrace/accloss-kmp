@@ -24,8 +24,6 @@ kotlin {
         }
 
         commonMain.dependencies {
-//            implementation(projects.types)
-
             // Coroutines
             implementation(libs.kotlinx.coroutines.core)
 

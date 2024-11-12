@@ -22,7 +22,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.types)
+            implementation(projects.core.shared)
 
             // Kotlin Datetime
             implementation(libs.kotlinx.datetime)

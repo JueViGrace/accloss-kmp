@@ -28,7 +28,10 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.types)
+            implementation(projects.core.shared)
+            implementation(projects.feature.dashboard)
+            implementation(projects.feature.contact)
+            implementation(projects.feature.contactDetail)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -71,4 +74,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_21
         targetCompatibility = JavaVersion.VERSION_21
     }
+}
+
+compose.resources {
+    generateResClass = never
 }

@@ -31,11 +31,12 @@ dependencyResolutionManagement {
 include(
     ":composeApp",
     ":core:database",
-    ":core:types",
+    ":core:shared",
     ":core:api",
     ":core:di",
     ":feature:auth",
     ":feature:home",
+    ":feature:dashboard",
     ":feature:contact",
     ":feature:contact-detail",
 )
