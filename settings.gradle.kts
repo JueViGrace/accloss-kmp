@@ -30,10 +30,12 @@ dependencyResolutionManagement {
 
 include(
     ":composeApp",
-    ":core:database",
-    ":core:shared",
-    ":core:api",
+    ":core:data:api",
+    ":core:data:database",
+    ":core:data:types",
     ":core:di",
+    ":core:presentation",
+    ":core:resources",
     ":feature:auth",
     ":feature:home",
     ":feature:dashboard",

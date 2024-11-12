@@ -3,9 +3,9 @@ package com.closs.feature.contact.presentation.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.closs.core.shared.common.Constants.CONTACTS_QUERY_KEY
-import com.closs.core.shared.common.Constants.SHARING_STARTED
-import com.closs.core.shared.data.RequestState
+import com.closs.shared.common.Constants.CONTACTS_QUERY_KEY
+import com.closs.shared.common.Constants.SHARING_STARTED
+import com.closs.shared.data.RequestState
 import com.closs.feature.contact.domain.usecase.GetContacts
 import com.closs.feature.contact.presentation.state.ContactsState
 import kotlinx.coroutines.flow.MutableStateFlow

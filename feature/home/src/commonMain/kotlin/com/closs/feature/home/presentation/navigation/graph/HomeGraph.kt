@@ -4,7 +4,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.navigation
-import com.closs.core.shared.presentation.navigation.routes.Destinations
+import com.closs.shared.presentation.navigation.routes.Destinations
 import com.closs.feature.home.presentation.navigation.screen.HomeScreen
 
 fun NavGraphBuilder.homeGraph(

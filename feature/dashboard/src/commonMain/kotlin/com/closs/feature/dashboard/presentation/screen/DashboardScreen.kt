@@ -3,9 +3,9 @@ package com.closs.feature.dashboard.presentation.screen
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.closs.core.shared.presentation.components.display.CustomText
-import com.closs.core.shared.presentation.components.layout.LayoutComponent
-import com.closs.core.shared.presentation.navigation.event.home.HomeNavigationEvent
+import com.closs.shared.presentation.components.display.CustomText
+import com.closs.shared.presentation.components.layout.LayoutComponent
+import com.closs.shared.presentation.navigation.event.home.HomeNavigationEvent
 import com.closs.feature.dashboard.presentation.viewmodel.DashboardViewModel
 import org.koin.compose.viewmodel.koinViewModel
 

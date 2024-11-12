@@ -28,7 +28,10 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.shared)
+            implementation(projects.core.data.types)
+            implementation(projects.core.di)
+            implementation(projects.core.presentation)
+            implementation(projects.core.resources)
             implementation(projects.feature.dashboard)
             implementation(projects.feature.contact)
             implementation(projects.feature.contactDetail)

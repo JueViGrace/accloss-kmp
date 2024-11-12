@@ -24,9 +24,8 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.shared)
-            implementation(projects.core.database)
-            implementation(projects.core.api)
+            implementation(projects.core.data.database)
+            implementation(projects.core.data.api)
 
             // Koin
             implementation(libs.koin.core)

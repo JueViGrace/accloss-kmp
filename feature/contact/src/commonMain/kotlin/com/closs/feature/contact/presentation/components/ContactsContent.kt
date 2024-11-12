@@ -23,11 +23,11 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.boundsInParent
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
-import com.closs.core.shared.data.salesman.Salesman
-import com.closs.core.shared.presentation.components.display.CustomText
-import com.closs.core.shared.presentation.components.display.ListFooter
-import com.closs.core.shared.presentation.components.display.ListStickyHeader
-import com.closs.core.shared.presentation.components.layout.LazyColumnComponent
+import com.closs.shared.data.salesman.Salesman
+import com.closs.shared.presentation.components.display.CustomText
+import com.closs.shared.presentation.components.display.ListFooter
+import com.closs.shared.presentation.components.display.ListStickyHeader
+import com.closs.shared.presentation.components.layout.LazyColumnComponent
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.abs

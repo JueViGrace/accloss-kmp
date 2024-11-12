@@ -2,7 +2,7 @@ package com.closs.feature.contact.detail.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.closs.core.shared.common.Constants.SHARING_STARTED
+import com.closs.shared.common.Constants.SHARING_STARTED
 import com.closs.feature.contact.detail.domain.usecase.GetSalesman
 import com.closs.feature.contact.detail.presentation.state.ContactDetailState
 import kotlinx.coroutines.flow.MutableStateFlow

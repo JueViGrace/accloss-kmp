@@ -11,8 +11,8 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
-import com.closs.core.shared.presentation.navigation.event.auth.AuthNavigationEvent
-import com.closs.core.shared.presentation.navigation.routes.Destinations
+import com.closs.shared.presentation.navigation.event.auth.AuthNavigationEvent
+import com.closs.shared.presentation.navigation.routes.Destinations
 import com.closs.feature.auth.presentation.navigation.screen.AuthScreen
 
 fun NavGraphBuilder.authGraph(

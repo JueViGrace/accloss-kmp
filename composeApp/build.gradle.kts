@@ -34,7 +34,7 @@ kotlin {
             implementation(libs.koin.androidx.compose)
         }
         commonMain.dependencies {
-            implementation(projects.core.shared)
+            implementation(projects.core.presentation)
             implementation(projects.core.di)
             implementation(projects.feature.auth)
             implementation(projects.feature.home)

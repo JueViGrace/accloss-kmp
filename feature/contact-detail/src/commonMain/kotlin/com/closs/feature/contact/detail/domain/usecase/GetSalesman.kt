@@ -1,7 +1,7 @@
 package com.closs.feature.contact.detail.domain.usecase
 
-import com.closs.core.shared.data.RequestState
-import com.closs.core.shared.data.salesman.Salesman
+import com.closs.shared.data.RequestState
+import com.closs.shared.data.salesman.Salesman
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

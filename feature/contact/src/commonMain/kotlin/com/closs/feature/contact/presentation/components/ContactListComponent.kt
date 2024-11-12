@@ -15,9 +15,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
-import com.closs.core.shared.data.salesman.Salesman
-import com.closs.core.shared.presentation.components.display.CustomText
-import com.closs.core.shared.presentation.components.display.LetterComponent
+import com.closs.shared.data.salesman.Salesman
+import com.closs.shared.presentation.components.display.CustomText
+import com.closs.shared.presentation.components.display.LetterComponent
 
 @Composable
 fun ContactListComponent(

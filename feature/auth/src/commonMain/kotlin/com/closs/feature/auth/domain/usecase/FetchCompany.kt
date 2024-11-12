@@ -1,7 +1,7 @@
 package com.closs.feature.auth.domain.usecase
 
-import com.closs.core.shared.data.RequestState
-import com.closs.core.shared.data.company.Company
+import com.closs.shared.data.RequestState
+import com.closs.shared.data.company.Company
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

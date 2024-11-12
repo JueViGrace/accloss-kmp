@@ -44,12 +44,12 @@ import androidx.compose.ui.text.capitalize
 import androidx.compose.ui.text.intl.Locale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import com.closs.core.shared.data.salesman.Salesman
-import com.closs.core.shared.presentation.components.display.CardComponent
-import com.closs.core.shared.presentation.components.display.CardLabel
-import com.closs.core.shared.presentation.components.display.CustomText
-import com.closs.core.shared.presentation.components.display.LetterComponent
-import com.closs.core.shared.presentation.components.icons.IconComponent
+import com.closs.shared.data.salesman.Salesman
+import com.closs.shared.presentation.components.display.CardComponent
+import com.closs.shared.presentation.components.display.CardLabel
+import com.closs.shared.presentation.components.display.CustomText
+import com.closs.shared.presentation.components.display.LetterComponent
+import com.closs.shared.presentation.components.icons.IconComponent
 import org.jetbrains.compose.resources.painterResource
 import org.jetbrains.compose.resources.stringResource
 
