@@ -2,8 +2,8 @@ package com.closs.feature.auth.presentation.navigation.screen
 
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.runtime.Composable
-import com.closs.shared.presentation.components.display.CustomText
-import com.closs.shared.presentation.navigation.event.auth.AuthNavigationEvent
+import com.closs.core.presentation.components.display.CustomText
+import com.closs.core.presentation.navigation.event.auth.AuthNavigationEvent
 import com.closs.feature.auth.presentation.viewmodel.AuthViewModel
 import org.koin.compose.viewmodel.koinViewModel
 

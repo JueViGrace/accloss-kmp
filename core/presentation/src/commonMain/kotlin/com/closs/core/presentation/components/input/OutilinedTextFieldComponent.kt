@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.input
+package com.closs.core.presentation.components.input
 
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions

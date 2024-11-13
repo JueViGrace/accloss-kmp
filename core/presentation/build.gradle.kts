@@ -25,6 +25,7 @@ kotlin {
 
         commonMain.dependencies {
             implementation(projects.core.data.types)
+            implementation(projects.core.resources)
 
             implementation(compose.runtime)
             implementation(compose.foundation)
@@ -66,5 +67,5 @@ android {
 }
 
 compose.resources {
-    publicResClass = false
+    generateResClass = never
 }

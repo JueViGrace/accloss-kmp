@@ -1,8 +1,8 @@
 package com.closs.core.types.common
 
-import accloss_kmp.core.shared.generated.resources.Res
-import accloss_kmp.core.shared.generated.resources.ic_avlogo
-import accloss_kmp.core.shared.generated.resources.ic_wokin_logo
+import accloss_kmp.core.resources.generated.resources.Res
+import accloss_kmp.core.resources.generated.resources.ic_avlogo
+import accloss_kmp.core.resources.generated.resources.ic_wokin_logo
 import androidx.compose.runtime.Composable
 import kotlinx.coroutines.flow.SharingStarted
 import org.jetbrains.compose.resources.painterResource

@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.layout
+package com.closs.core.presentation.components.layout
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size

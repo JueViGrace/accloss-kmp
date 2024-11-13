@@ -1,7 +1,7 @@
-package com.closs.core.shared.presentation.navigation.event.home
+package com.closs.core.presentation.navigation.event.home
 
 import androidx.navigation.NavHostController
-import com.closs.core.shared.presentation.navigation.routes.Destinations
+import com.closs.core.presentation.navigation.routes.Destinations
 
 sealed interface HomeNavigationEvent {
     data object OnBack : HomeNavigationEvent

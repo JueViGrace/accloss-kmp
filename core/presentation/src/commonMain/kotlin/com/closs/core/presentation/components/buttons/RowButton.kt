@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.buttons
+package com.closs.core.presentation.components.buttons
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.interaction.MutableInteractionSource
@@ -13,7 +13,7 @@ import androidx.compose.material3.ElevatedButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
-import com.closs.core.shared.presentation.components.display.RowComponent
+import com.closs.core.presentation.components.display.RowComponent
 
 @Composable
 fun RowButton(

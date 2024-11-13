@@ -1,7 +1,7 @@
 package com.closs.feature.auth.presentation.state
 
-import com.closs.shared.data.auth.Session
-import com.closs.shared.data.company.Company
+import com.closs.core.types.data.auth.Session
+import com.closs.core.types.data.company.Company
 import org.jetbrains.compose.resources.StringResource
 
 data class AuthState(

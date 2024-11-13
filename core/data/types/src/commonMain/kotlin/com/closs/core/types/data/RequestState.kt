@@ -1,7 +1,7 @@
 package com.closs.core.types.data
 
-import accloss_kmp.core.shared.generated.resources.Res
-import accloss_kmp.core.shared.generated.resources.unknown_error
+import accloss_kmp.core.resources.generated.resources.Res
+import accloss_kmp.core.resources.generated.resources.unknown_error
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ContentTransform
@@ -10,6 +10,10 @@ import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
 import androidx.compose.animation.togetherWith
 import androidx.compose.runtime.Composable
+import com.closs.core.types.data.RequestState.Error
+import com.closs.core.types.data.RequestState.Idle
+import com.closs.core.types.data.RequestState.Loading
+import com.closs.core.types.data.RequestState.Success
 import org.jetbrains.compose.resources.StringResource
 
 sealed class RequestState<out T> {
@@ -48,39 +52,39 @@ sealed class RequestState<out T> {
             Res.string.unknown_error
         }
     }
+}
 
-    @Composable
-    fun<T> RequestState<T>.DisplayResult(
-        onIdle: (@Composable () -> Unit)? = null,
-        onLoading: @Composable () -> Unit,
-        onSuccess: @Composable (T) -> Unit,
-        onError: @Composable (StringResource) -> Unit,
-        transitionSpec: AnimatedContentTransitionScope<*>.() -> ContentTransform = {
-            fadeIn(tween(durationMillis = 300)) togetherWith
-                fadeOut(tween(durationMillis = 300))
-        }
-    ) {
-        AnimatedContent(
-            targetState = this,
-            transitionSpec = transitionSpec,
-            label = "Animated State"
-        ) { state ->
-            when (state) {
-                is Idle -> {
-                    onIdle?.invoke()
-                }
+@Composable
+fun<T> RequestState<T>.DisplayResult(
+    onIdle: (@Composable () -> Unit)? = null,
+    onLoading: @Composable () -> Unit,
+    onSuccess: @Composable (T) -> Unit,
+    onError: @Composable (StringResource) -> Unit,
+    transitionSpec: AnimatedContentTransitionScope<*>.() -> ContentTransform = {
+        fadeIn(tween(durationMillis = 300)) togetherWith
+            fadeOut(tween(durationMillis = 300))
+    }
+) {
+    AnimatedContent(
+        targetState = this,
+        transitionSpec = transitionSpec,
+        label = "Animated State"
+    ) { state ->
+        when (state) {
+            is Idle -> {
+                onIdle?.invoke()
+            }
 
-                is Loading -> {
-                    onLoading()
-                }
+            is Loading -> {
+                onLoading()
+            }
 
-                is Success -> {
-                    onSuccess(state.getSuccessData())
-                }
+            is Success -> {
+                onSuccess(state.getSuccessData())
+            }
 
-                is Error -> {
-                    onError(state.getErrorMessage())
-                }
+            is Error -> {
+                onError(state.getErrorMessage())
             }
         }
     }

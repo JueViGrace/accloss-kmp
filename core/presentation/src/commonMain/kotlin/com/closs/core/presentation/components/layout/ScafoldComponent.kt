@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.layout
+package com.closs.core.presentation.components.layout
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -14,8 +14,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import com.closs.core.shared.data.RequestState
-import com.closs.core.shared.data.RequestState.Idle.DisplayResult
+import com.closs.core.types.data.DisplayResult
+import com.closs.core.types.data.RequestState
 
 @Composable
 fun<T> LayoutComponent(

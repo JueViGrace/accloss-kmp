@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.display
+package com.closs.core.presentation.components.display
 
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
@@ -11,7 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.TextUnit
-import com.closs.core.shared.common.capitalizeString
+import com.closs.core.types.common.capitalizeString
 
 @Composable
 fun CustomText(

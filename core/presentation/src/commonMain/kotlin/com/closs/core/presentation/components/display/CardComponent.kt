@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.display
+package com.closs.core.presentation.components.display
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.ColumnScope

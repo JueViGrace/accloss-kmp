@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.navigation.routes
+package com.closs.core.presentation.navigation.routes
 
 import kotlinx.serialization.Serializable
 

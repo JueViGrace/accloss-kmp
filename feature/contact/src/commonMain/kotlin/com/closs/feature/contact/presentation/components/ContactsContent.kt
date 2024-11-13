@@ -1,7 +1,7 @@
 package com.closs.feature.contact.presentation.components
 
-import accloss_kmp.core.shared.generated.resources.Res
-import accloss_kmp.core.shared.generated.resources.end_of_list
+import accloss_kmp.core.resources.generated.resources.Res
+import accloss_kmp.core.resources.generated.resources.end_of_list
 import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.detectVerticalDragGestures
 import androidx.compose.foundation.layout.Arrangement
@@ -23,11 +23,11 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.boundsInParent
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
-import com.closs.shared.data.salesman.Salesman
-import com.closs.shared.presentation.components.display.CustomText
-import com.closs.shared.presentation.components.display.ListFooter
-import com.closs.shared.presentation.components.display.ListStickyHeader
-import com.closs.shared.presentation.components.layout.LazyColumnComponent
+import com.closs.core.presentation.components.display.CustomText
+import com.closs.core.presentation.components.display.ListFooter
+import com.closs.core.presentation.components.display.ListStickyHeader
+import com.closs.core.presentation.components.layout.LazyColumnComponent
+import com.closs.core.types.data.salesman.Salesman
 import kotlinx.coroutines.launch
 import org.jetbrains.compose.resources.stringResource
 import kotlin.math.abs

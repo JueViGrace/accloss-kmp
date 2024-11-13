@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.navigation
+package com.closs.core.presentation.components.navigation
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.material3.NavigationBarItem

@@ -32,8 +32,6 @@ kotlin {
             implementation(compose.ui)
             implementation(compose.components.resources)
 
-            implementation(libs.androidx.navigation.compose)
-
             // Coroutines
             implementation(libs.kotlinx.coroutines.core)
 
@@ -66,5 +64,5 @@ android {
 }
 
 compose.resources {
-    publicResClass = false
+    generateResClass = never
 }

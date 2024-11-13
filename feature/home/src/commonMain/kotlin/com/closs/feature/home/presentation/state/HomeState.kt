@@ -1,7 +1,7 @@
 package com.closs.feature.home.presentation.state
 
-import com.closs.shared.data.RequestState
-import com.closs.shared.data.auth.Session
+import com.closs.core.types.data.RequestState
+import com.closs.core.types.data.auth.Session
 
 data class HomeState(
     val account: Session? = null,

@@ -2,7 +2,7 @@ package com.closs.feature.contact.detail.presentation.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import com.closs.shared.data.salesman.Salesman
+import com.closs.core.types.data.salesman.Salesman
 
 @Composable
 actual fun ContactComponent(

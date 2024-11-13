@@ -1,4 +1,4 @@
-package com.closs.core.shared.presentation.components.icons
+package com.closs.core.presentation.components.icons
 
 import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.material3.Icon

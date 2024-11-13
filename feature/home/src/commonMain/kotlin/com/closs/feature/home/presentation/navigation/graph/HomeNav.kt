@@ -11,7 +11,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.toRoute
-import com.closs.shared.presentation.navigation.routes.Destinations
+import com.closs.core.presentation.navigation.routes.Destinations
 import com.closs.feature.contact.detail.presentation.screen.ContactDetailScreen
 import com.closs.feature.contact.presentation.screen.ContactScreen
 import com.closs.feature.dashboard.presentation.screen.DashboardScreen
