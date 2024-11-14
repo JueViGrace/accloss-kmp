@@ -1,7 +1,5 @@
 package com.closs.core.types.data
 
-import accloss_kmp.core.resources.generated.resources.Res
-import accloss_kmp.core.resources.generated.resources.unknown_error
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.compose.animation.ContentTransform
@@ -14,13 +12,12 @@ import com.closs.core.types.data.RequestState.Error
 import com.closs.core.types.data.RequestState.Idle
 import com.closs.core.types.data.RequestState.Loading
 import com.closs.core.types.data.RequestState.Success
-import org.jetbrains.compose.resources.StringResource
 
 sealed class RequestState<out T> {
     data object Idle : RequestState<Nothing>()
     data object Loading : RequestState<Nothing>()
     data class Success<T>(val data: T) : RequestState<T>()
-    data class Error(val message: StringResource) : RequestState<Nothing>()
+    data class Error(val error: DataError) : RequestState<Nothing>()
 
     fun isLoading() = this is Loading
     fun isSuccess() = this is Success
@@ -44,12 +41,12 @@ sealed class RequestState<out T> {
      * Returns an error message from an [Error]
      * @throws ClassCastException If the current state is not [Error]
      *  */
-    fun getErrorMessage() = (this as Error).message
-    fun getErrorMessageOrEmpty(): StringResource {
+    fun getErrorMessage() = (this as Error).error
+    fun getErrorMessageOrEmpty(): DataError {
         return try {
-            (this as Error).message
+            (this as Error).error
         } catch (e: Exception) {
-            Res.string.unknown_error
+            DataError.UnknownDataError(e.message)
         }
     }
 }
@@ -59,7 +56,7 @@ fun<T> RequestState<T>.DisplayResult(
     onIdle: (@Composable () -> Unit)? = null,
     onLoading: @Composable () -> Unit,
     onSuccess: @Composable (T) -> Unit,
-    onError: @Composable (StringResource) -> Unit,
+    onError: @Composable (DataError) -> Unit,
     transitionSpec: AnimatedContentTransitionScope<*>.() -> ContentTransform = {
         fadeIn(tween(durationMillis = 300)) togetherWith
             fadeOut(tween(durationMillis = 300))

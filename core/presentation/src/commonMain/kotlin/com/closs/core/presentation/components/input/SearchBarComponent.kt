@@ -1,9 +1,5 @@
 package com.closs.core.presentation.components.input
 
-import accloss_kmp.core.resources.generated.resources.Res
-import accloss_kmp.core.resources.generated.resources.ic_search
-import accloss_kmp.core.resources.generated.resources.ic_x
-import accloss_kmp.core.resources.generated.resources.search
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -16,6 +12,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.text.input.ImeAction
+import closs_kmp.core.resources.generated.resources.Res
+import closs_kmp.core.resources.generated.resources.ic_search
+import closs_kmp.core.resources.generated.resources.ic_x
+import closs_kmp.core.resources.generated.resources.search
 import com.closs.core.presentation.components.display.CustomText
 import com.closs.core.presentation.components.icons.IconComponent
 import org.jetbrains.compose.resources.painterResource

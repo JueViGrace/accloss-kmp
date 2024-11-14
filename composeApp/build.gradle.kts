@@ -36,8 +36,12 @@ kotlin {
         commonMain.dependencies {
             implementation(projects.core.presentation)
             implementation(projects.core.di)
-            implementation(projects.feature.auth)
-            implementation(projects.feature.home)
+
+            // packages/auth
+            implementation(projects.lib.auth.di)
+            implementation(projects.lib.auth.presentation)
+
+            implementation(projects.lib.home)
 
             implementation(compose.runtime)
             implementation(compose.foundation)

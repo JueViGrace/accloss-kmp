@@ -1,8 +1,5 @@
 package com.closs.core.presentation.components.layout
 
-import accloss_kmp.core.resources.generated.resources.Res
-import accloss_kmp.core.resources.generated.resources.ic_cloud
-import accloss_kmp.core.resources.generated.resources.synchronize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -10,6 +7,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import closs_kmp.core.resources.generated.resources.Res
+import closs_kmp.core.resources.generated.resources.ic_cloud
+import closs_kmp.core.resources.generated.resources.synchronize
 import com.closs.core.presentation.components.display.CustomText
 import com.closs.core.presentation.components.display.RowComponent
 import com.closs.core.presentation.components.icons.IconComponent

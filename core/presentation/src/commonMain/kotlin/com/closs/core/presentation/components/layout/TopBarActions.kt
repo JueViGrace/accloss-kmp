@@ -1,17 +1,5 @@
 package com.closs.core.presentation.components.layout
 
-import accloss_kmp.core.resources.generated.resources.Res
-import accloss_kmp.core.resources.generated.resources.bills
-import accloss_kmp.core.resources.generated.resources.customers
-import accloss_kmp.core.resources.generated.resources.ic_dots_vertical
-import accloss_kmp.core.resources.generated.resources.ic_receipt
-import accloss_kmp.core.resources.generated.resources.ic_report_analytics
-import accloss_kmp.core.resources.generated.resources.ic_search
-import accloss_kmp.core.resources.generated.resources.ic_shopping_bag
-import accloss_kmp.core.resources.generated.resources.ic_users_group
-import accloss_kmp.core.resources.generated.resources.orders
-import accloss_kmp.core.resources.generated.resources.search
-import accloss_kmp.core.resources.generated.resources.statistics
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -24,6 +12,18 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import closs_kmp.core.resources.generated.resources.Res
+import closs_kmp.core.resources.generated.resources.bills
+import closs_kmp.core.resources.generated.resources.customers
+import closs_kmp.core.resources.generated.resources.ic_dots_vertical
+import closs_kmp.core.resources.generated.resources.ic_receipt
+import closs_kmp.core.resources.generated.resources.ic_report_analytics
+import closs_kmp.core.resources.generated.resources.ic_search
+import closs_kmp.core.resources.generated.resources.ic_shopping_bag
+import closs_kmp.core.resources.generated.resources.ic_users_group
+import closs_kmp.core.resources.generated.resources.orders
+import closs_kmp.core.resources.generated.resources.search
+import closs_kmp.core.resources.generated.resources.statistics
 import com.closs.core.presentation.components.display.CustomText
 import com.closs.core.presentation.components.icons.IconComponent
 import org.jetbrains.compose.resources.DrawableResource

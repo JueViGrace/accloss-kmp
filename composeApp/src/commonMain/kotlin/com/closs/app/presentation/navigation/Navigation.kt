@@ -6,8 +6,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.rememberNavController
 import com.closs.core.presentation.navigation.routes.Destinations
-import com.closs.feature.auth.presentation.navigation.graph.authGraph
-import com.closs.feature.home.presentation.navigation.graph.homeGraph
+import com.closs.auth.presentation.navigation.graph.authGraph
+import com.closs.home.presentation.navigation.graph.homeGraph
 
 @Composable
 fun Navigation(
