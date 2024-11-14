@@ -2,25 +2,22 @@ package com.closs.auth.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.closs.auth.domain.usecase.FetchCompany
-import com.closs.auth.domain.usecase.FetchUser
+import com.closs.auth.domain.repository.AuthRepository
 import com.closs.auth.presentation.events.AuthEvent
 import com.closs.auth.presentation.state.AuthState
+import com.closs.core.types.data.RequestState
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
+// todo: make navigator
 class AuthViewModel(
-    private val fetchCompany: FetchCompany,
-    private val fetchUser: FetchUser
+    private val authRepository: AuthRepository,
 ) : ViewModel() {
-    private var _state = MutableStateFlow(AuthState())
-    val state = _state.asStateFlow()
-
-    init {
-        // todo: validate user
-    }
+    private var _state: MutableStateFlow<AuthState> = MutableStateFlow(AuthState())
+    val state: StateFlow<AuthState> = _state.asStateFlow()
 
     fun onEvent(event: AuthEvent) {
         when (event) {
@@ -61,7 +58,6 @@ class AuthViewModel(
 
     private fun handleCompanyClick() {
         viewModelScope.launch {
-
         }
     }
 
@@ -75,5 +71,20 @@ class AuthViewModel(
     }
 
     private fun toggleAuthMenu() {
+    }
+
+    private fun sessionStarted() {
+        viewModelScope.launch {
+            authRepository.getSession().collect { result ->
+                when (result) {
+                    is RequestState.Error -> {
+                    }
+                    is RequestState.Success -> {
+                    }
+                    else -> {
+                    }
+                }
+            }
+        }
     }
 }
