@@ -21,8 +21,8 @@ import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.boundsInParent
 import androidx.compose.ui.layout.onGloballyPositioned
 import androidx.compose.ui.unit.dp
-import closs_kmp.core.resources.generated.resources.Res
-import closs_kmp.core.resources.generated.resources.end_of_list
+import closs_kmp.lib.core.resources.generated.resources.Res
+import closs_kmp.lib.core.resources.generated.resources.end_of_list
 import com.closs.core.presentation.components.display.CustomText
 import com.closs.core.presentation.components.display.ListFooter
 import com.closs.core.presentation.components.display.ListStickyHeader

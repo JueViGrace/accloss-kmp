@@ -21,9 +21,9 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.data.types)
-            implementation(projects.core.data.api)
-            implementation(projects.core.data.database)
+            implementation(projects.lib.core.data.types)
+            implementation(projects.lib.core.data.api)
+            implementation(projects.lib.core.data.database)
             implementation(projects.lib.auth.domain)
 
             // Kotlinx

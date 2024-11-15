@@ -22,7 +22,7 @@ import kotlinx.coroutines.withContext
 import kotlin.coroutines.CoroutineContext
 
 class AuthRepositoryImpl(
-    private val ktorClient: KtorClient = KtorClient,
+    private val ktorClient: KtorClient,
     private val dbHelper: DbHelper,
     private val scope: CoroutineScope,
     private val coroutineContext: CoroutineContext

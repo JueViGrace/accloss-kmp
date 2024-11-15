@@ -28,10 +28,10 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.data.types)
-            implementation(projects.core.di)
-            implementation(projects.core.presentation)
-            implementation(projects.core.resources)
+            implementation(projects.lib.core.data.types)
+            implementation(projects.lib.core.di)
+            implementation(projects.lib.core.presentation)
+            implementation(projects.lib.core.resources)
 
             implementation(compose.runtime)
             implementation(compose.foundation)

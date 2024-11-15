@@ -8,4 +8,5 @@ fun appModule(): List<Module> = listOf(
     homeModule(),
     authModule(),
     stateModule(),
+    navigationModule(),
 )

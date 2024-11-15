@@ -14,6 +14,8 @@ import androidx.navigation.navigation
 import com.closs.core.presentation.navigation.event.auth.AuthNavigationEvent
 import com.closs.core.presentation.navigation.routes.Destinations
 import com.closs.auth.presentation.navigation.screen.AuthScreen
+import com.closs.auth.presentation.state.AuthState
+import org.koin.compose.viewmodel.koinViewModel
 
 fun NavGraphBuilder.authGraph(
     navController: NavHostController

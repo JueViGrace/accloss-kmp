@@ -34,8 +34,8 @@ kotlin {
             implementation(libs.koin.androidx.compose)
         }
         commonMain.dependencies {
-            implementation(projects.core.presentation)
-            implementation(projects.core.di)
+            implementation(projects.lib.core.presentation)
+            implementation(projects.lib.core.di)
 
             // packages/auth
             implementation(projects.lib.auth.di)

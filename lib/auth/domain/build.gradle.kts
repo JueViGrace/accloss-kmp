@@ -21,7 +21,7 @@ kotlin {
         }
 
         commonMain.dependencies {
-            implementation(projects.core.data.types)
+            implementation(projects.lib.core.data.types)
 
             // Kotlinx
             implementation(libs.kotlinx.coroutines.core)

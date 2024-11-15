@@ -33,22 +33,22 @@ include(":composeApp")
 // core
 
 // data/api
-include(":core:data:api")
+include(":lib:core:data:api")
 
 // data/database
-include(":core:data:database")
+include(":lib:core:data:database")
 
 // data/types
-include(":core:data:types")
+include(":lib:core:data:types")
 
 // di
-include(":core:di")
+include(":lib:core:di")
 
 // presentation
-include(":core:presentation")
+include(":lib:core:presentation")
 
 // resources
-include(":core:resources")
+include(":lib:core:resources")
 
 // lib
 
